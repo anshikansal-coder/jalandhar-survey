@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jalandhar Survey Report — DFCA / Lung Care Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C62828;
+    --red-dark: #8e1c1c;
+    --red-light: #ff6b6b;
+    --black: #111111;
+    --white: #ffffff;
+    --cream: #FAF6F0;
+    --warm-gray: #F0EBE3;
+    --mid-gray: #8a8070;
+    --text: #2a1f1a;
+    --border: #e0d6cc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--black);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  nav .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  nav .logo-box {
+    width: 32px;
+    height: 32px;
+    background: var(--red);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  nav .logo-box svg { width: 20px; height: 20px; fill: white; }
+  nav .brand-name {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+  }
+  nav .brand-name span { color: var(--red-light); display: block; font-size: 11px; font-weight: 300; }
+  nav .nav-links { display: flex; gap: 28px; list-style: none; }
+  nav .nav-links a { color: #aaa; font-size: 13px; text-decoration: none; font-weight: 400; transition: color 0.2s; }
+  nav .nav-links a:hover { color: white; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    padding: 80px 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, #1a0808 100%);
+  }
+  .hero-tag {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+  .hero-content { max-width: 760px; position: relative; z-index: 1; }
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(36px, 5vw, 60px);
+    font-weight: 700;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em { color: var(--red-light); font-style: normal; }
+  .hero p {
+    color: #aaa;
+    font-size: 17px;
+    max-width: 580px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 32px;
+    padding-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .hero-meta-item { color: #666; font-size: 13px; line-height: 1.4; }
+  .hero-meta-item strong { color: #ddd; display: block; font-size: 14px; font-weight: 500; }
+
+  /* ── HERO STATS BAR ── */
+  .stats-bar {
+    background: var(--red);
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat-item {
+    padding: 28px 24px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-number {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+  .stat-label { color: rgba(255,255,255,0.75); font-size: 13px; font-weight: 400; margin-top: 4px; }
+
+  /* ── SECTION LAYOUT ── */
+  section { padding: 72px 48px; }
+  section:nth-child(even) { background: var(--white); }
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(26px, 3vw, 38px);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+  }
+  .section-intro {
+    font-size: 17px;
+    color: #555;
+    max-width: 680px;
+    font-weight: 300;
+    margin-bottom: 48px;
+    line-height: 1.75;
+  }
+
+  /* ── METHODOLOGY ── */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .method-card {
+    background: var(--white);
+    padding: 32px;
+  }
+  .method-icon {
+    width: 44px; height: 44px;
+    background: var(--warm-gray);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+  }
+  .method-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--black); }
+  .method-card p { font-size: 14px; color: var(--mid-gray); line-height: 1.6; }
+
+  .sampling-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .sampling-step {
+    flex: 1;
+    padding: 20px 16px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .sampling-step:last-child { border-right: none; }
+  .sampling-step::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--red);
+    font-size: 16px;
+    z-index: 1;
+  }
+  .sampling-step:last-child::after { display: none; }
+  .sampling-step .s-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 6px; }
+  .sampling-step .s-value { font-size: 14px; font-weight: 600; color: var(--black); }
+
+  /* ── KEY FINDINGS ── */
+  .findings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .finding-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 28px 28px 0;
+    display: flex;
+    gap: 0;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .finding-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(198,40,40,0.1); }
+  .finding-card.span-2 { grid-column: span 2; }
+  .finding-number-col {
+    width: 72px;
+    min-width: 72px;
+    background: var(--red);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 28px;
+    margin-right: 24px;
+  }
+  .finding-number {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.35);
+    line-height: 1;
+  }
+  .finding-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--red);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .finding-stat {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 10px;
+    letter-spacing: -0.03em;
+  }
+  .finding-desc { font-size: 14px; color: #555; line-height: 1.65; font-weight: 300; }
+
+  /* ── VULNERABLE GROUPS ── */
+  .vuln-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .vuln-card {
+    background: var(--black);
+    border-radius: 8px;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  .vuln-pct {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--red-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .vuln-card .vuln-more { font-size: 11px; color: #666; font-weight: 400; margin-bottom: 12px; }
+  .vuln-icon { font-size: 28px; margin-bottom: 8px; }
+  .vuln-label { font-size: 13px; color: #aaa; font-weight: 300; }
+
+  /* ── COM-B ── */
+  .comb-table { width: 100%; border-collapse: collapse; }
+  .comb-table th {
+    background: var(--black);
+    color: white;
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .comb-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .comb-table tr:last-child td { border-bottom: none; }
+  .comb-table tr:nth-child(even) td { background: var(--warm-gray); }
+  .comb-component {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .comb-cap { background: #FFF3E0; color: #E65100; }
+  .comb-opp { background: #E8F5E9; color: #1B5E20; }
+  .comb-mot { background: #E3F2FD; color: #0D47A1; }
+  .comb-subdim { font-size: 12px; color: var(--mid-gray); font-style: italic; }
+  .comb-insights { color: var(--text); }
+  .comb-insights ul { list-style: none; }
+  .comb-insights ul li { padding: 3px 0; }
+  .comb-insights ul li::before { content: '—  '; color: var(--red); }
+
+  /* ── RECOMMENDATIONS ── */
+  .reco-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 40px; }
+  .reco-tab {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mid-gray);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .reco-tab.active { color: var(--red); border-bottom-color: var(--red); }
+  .reco-panel { display: none; }
+  .reco-panel.active { display: block; }
+  .reco-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .reco-item {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--red);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 22px;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.65;
+    counter-increment: reco;
+    position: relative;
+  }
+  .reco-item strong { color: var(--black); }
+
+  /* ── WAY FORWARD ── */
+  .wf-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .wf-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px 18px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .wf-card:hover { border-color: var(--red); background: #FFF5F5; }
+  .wf-icon { font-size: 28px; margin-bottom: 12px; }
+  .wf-card h4 { font-size: 13px; font-weight: 600; color: var(--black); line-height: 1.4; }
+
+  /* ── DISSEMINATION ── */
+  .dissem-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .dissem-block h3 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--red);
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .dissem-block ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .dissem-block ul li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .dissem-block ul li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    margin-top: 8px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  footer h3 { font-family: 'Fraunces', serif; font-size: 22px; color: white; font-weight: 700; margin-bottom: 12px; }
+  footer p { font-size: 14px; color: #777; line-height: 1.7; font-weight: 300; }
+  footer .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  footer .footer-links a { color: #888; font-size: 13px; text-decoration: none; transition: color 0.2s; }
+  footer .footer-links a:hover { color: var(--red-light); }
+  footer .footer-credit { grid-column: span 2; border-top: 1px solid #222; padding-top: 28px; color: #444; font-size: 12px; display: flex; justify-content: space-between; }
+
+  /* ── DEMO CHART ── */
+  .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .demo-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .demo-table thead th {
+    background: var(--black);
+    color: white;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+  .demo-table tbody tr td { padding: 10px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+  .demo-table tbody tr:nth-child(even) td { background: var(--warm-gray); }
+  .demo-table tbody tr td:last-child { font-weight: 600; color: var(--red); text-align: right; }
+
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .bar-label { font-size: 12px; color: #666; min-width: 110px; text-align: right; }
+  .bar-track { flex: 1; height: 10px; background: var(--warm-gray); border-radius: 20px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--red); border-radius: 20px; transition: width 1s ease; }
+  .bar-pct { font-size: 12px; font-weight: 600; color: var(--black); min-width: 36px; }
+
+  /* ── DIVIDER ── */
+  .red-rule { width: 48px; height: 3px; background: var(--red); margin: 16px 0 32px; }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    background: var(--black);
+    color: white;
+    padding: 40px 48px;
+    border-left: 6px solid var(--red);
+    margin: 0 48px;
+    border-radius: 0 6px 6px 0;
+  }
+  .pull-quote blockquote {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.55;
+    color: #e8e8e8;
+    margin-bottom: 16px;
+  }
+  .pull-quote cite { font-size: 13px; color: #666; font-style: normal; }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    nav .nav-links { display: none; }
+    section { padding: 48px 24px; }
+    .hero { padding: 48px 24px 0; }
+    .stats-bar { padding: 0 24px; grid-template-columns: 1fr; }
+    .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .method-grid { grid-template-columns: 1fr; }
+    .findings-grid { grid-template-columns: 1fr; }
+    .finding-card.span-2 { grid-column: span 1; }
+    .vuln-grid { grid-template-columns: repeat(2, 1fr); }
+    .wf-grid { grid-template-columns: repeat(2, 1fr); }
+    .dissem-cols { grid-template-columns: 1fr; }
+    .demo-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr; }
+    footer .footer-credit { grid-column: 1; }
+    .pull-quote { margin: 0 24px; padding: 28px 24px; }
+    .sampling-row { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://lcf.org.in" class="brand">
+    <div class="logo-box">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.5 2 5.5 5 5.5 8.5c0 2 .8 3.8 2 5.1L12 22l4.5-8.4c1.2-1.3 2-3.1 2-5.1C18.5 5 15.5 2 12 2z"/>
+      </svg>
+    </div>
+    <div class="brand-name">
+      Lung Care Foundation
+      <span>Doctors For Clean Air &amp; Climate Action</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#methodology">Methodology</a></li>
+    <li><a href="#findings">Key Findings</a></li>
+    <li><a href="#qualitative">COM-B Analysis</a></li>
+    <li><a href="#recommendations">Recommendations</a></li>
+    <li><a href="https://lcf.org.in" target="_blank">lcf.org.in →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Research Report · 2024–25</div>
+    <h1>Assessing the Impact of <em>Outdoor &amp; Indoor Air Pollution</em> on Community Health</h1>
+    <p>A mixed-methods survey across villages of Punjab — examining health outcomes, economic burden, and behavioural drivers of pollution exposure in rural communities.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><strong>Study Area</strong>Jalandhar &amp; Kapurthala Districts, Punjab</div>
+      <div class="hero-meta-item"><strong>Study Period</strong>November 2024 – January 2025</div>
+      <div class="hero-meta-item"><strong>Conducted by</strong>DFCA, an initiative of Lung Care Foundation</div>
+      <div class="hero-meta-item"><strong>Field Partner</strong>Morsel Research &amp; Development Pvt. Ltd.</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-number">42</div>
+    <div class="stat-label">Villages across Jalandhar &amp; Kapurthala</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">602</div>
+    <div class="stat-label">Households surveyed (door-to-door)</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">3,150</div>
+    <div class="stat-label">Individuals covered within households</div>
+  </div>
+</div>
+
+<!-- INTRODUCTION -->
+<section id="introduction">
+  <div class="section-label">Background</div>
+  <h2 class="section-title">Why This Survey?</h2>
+  <div class="red-rule"></div>
+  <p class="section-intro">Rural communities in Punjab face dual exposure to both indoor and outdoor air pollution — a burden that remains largely undocumented at the ground level. Punjab's AQI frequently exceeds WHO safe limits, with PM2.5 concentrations running 2.1× above recommended levels. Meanwhile, 34% of rural households still rely on solid fuels for cooking, compounding household air pollution risks.</p>
+  <p class="section-intro" style="margin-top:-24px;">Despite growing national awareness, local perceptions, behaviours, and barriers to cleaner practices remain understudied. This survey was designed by DFCA to bridge that gap — generating evidence to drive targeted interventions, health policy, and community education across the region.</p>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology">
+  <div class="section-label">Study Design</div>
+  <h2 class="section-title">Methodology</h2>
+  <div class="red-rule"></div>
+  <p class="section-intro">A mixed-methods cross-sectional design integrating quantitative surveys, qualitative field interviews, and direct physical observations. Respondents reflected on experiences over a six-month window (May/June – November/December 2024).</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-icon">📋</div>
+      <h3>Quantitative Component</h3>
+      <p>Validated structured questionnaires covering demographics, exposure to air pollution, self-reported health outcomes, and economic impact across 602 households.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">🗣</div>
+      <h3>Qualitative Component</h3>
+      <p>4 Focus Group Discussions and 4 In-Depth Interviews with Sarpanches, ASHAs, ANMs, CHOs, and primary caregivers. Analysed using NVivo and mapped to COM-B framework.</p>
+    </div>
+    <div class="method-card">
+      <div class="method-icon">👁</div>
+      <h3>Direct Physical Observations</h3>
+      <p>Field documentation of visible pollution contributors — fuel use, kitchen ventilation, proximity to highways, industrial zones, agricultural burning sites, and brick kilns.</p>
+    </div>
+  </div>
+
+  <p style="font-size:13px;color:var(--mid-gray);margin:32px 0 16px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;">Multistage Sampling Pathway</p>
+  <div class="sampling-row">
+    <div class="sampling-step"><div class="s-label">State</div><div class="s-value">Punjab</div></div>
+    <div class="sampling-step"><div class="s-label">Districts</div><div class="s-value">Jalandhar &amp; Kapurthala</div></div>
+    <div class="sampling-step"><div class="s-label">Sub-Divisions</div><div class="s-value">Jalandhar &amp; Phagwara</div></div>
+    <div class="sampling-step"><div class="s-label">Blocks</div><div class="s-value">11 Blocks</div></div>
+    <div class="sampling-step"><div class="s-label">Villages</div><div class="s-value">42 Villages</div></div>
+    <div class="sampling-step"><div class="s-label">Participants</div><div class="s-value">602 Households</div></div>
+  </div>
+</section>
+
+<!-- DEMOGRAPHICS -->
+<section id="demographics">
+  <div class="section-label">Who Was Surveyed</div>
+  <h2 class="section-title">Demographic Profile</h2>
+  <div class="red-rule"></div>
+  <div class="demo-grid">
+    <table class="demo-table">
+      <thead>
+        <tr><th>Characteristic</th><th>Detail</th><th>%</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mean Age</td><td>43 years</td><td>—</td></tr>
+        <tr><td>Female Respondents</td><td>356 of 602</td><td>59%</td></tr>
+        <tr><td>Married</td><td>470 of 602</td><td>78%</td></tr>
+        <tr><td>Secondary Education</td><td>228 respondents</td><td>38%</td></tr>
+        <tr><td>No Formal Education</td><td>100 respondents</td><td>16%</td></tr>
+        <tr><td>Labourers</td><td>168 respondents</td><td>28%</td></tr>
+        <tr><td>Unemployed</td><td>185 respondents</td><td>31%</td></tr>
+        <tr><td>Income ≤ ₹20,000/mo</td><td>468 households</td><td>78%</td></tr>
+        <tr><td>Mean Household Income</td><td colspan="2">₹20,058 / month</td></tr>
+        <tr><td>Mean Family Size</td><td colspan="2">5 members</td></tr>
+      </tbody>
+    </table>
+    <div>
+      <p style="font-size:13px;font-weight:600;color:var(--mid-gray);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:20px;">Vulnerable Population in Sample</p>
+      <div class="bar-chart">
+        <div class="bar-row"><div class="bar-label">Elders (65+)</div><div class="bar-track"><div class="bar-fill" style="width:71.4%"></div></div><div class="bar-pct">225</div></div>
+        <div class="bar-row"><div class="bar-label">Children (&lt;5 yrs)</div><div class="bar-track"><div class="bar-fill" style="width:54%"></div></div><div class="bar-pct">170</div></div>
+        <div class="bar-row"><div class="bar-label">Chronic Morbidity</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-pct">132</div></div>
+        <div class="bar-row"><div class="bar-label">Pregnant Women</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-pct">63</div></div>
+      </div>
+      <p style="font-size:12px;color:var(--mid-gray);margin-top:12px;">Bar lengths are relative within the sample (n=602 households, 3,150 individuals)</p>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FINDINGS -->
+<section id="findings">
+  <div class="section-label">Core Results</div>
+  <h2 class="section-title">Key Findings</h2>
+  <div class="red-rule"></div>
+  <p class="section-intro">Out of 3,150 individuals surveyed across 602 households, covering the period May/June – November/December 2024:</p>
+
+  <div class="findings-grid">
+    <div class="finding-card">
+      <div class="finding-number-col"><div class="finding-number">1</div></div>
+      <div>
+        <h3>Health Burden</h3>
+        <div class="finding-stat">4 in 10</div>
+        <p class="finding-desc">Individuals reported experiencing at least one respiratory or related health issue in the last six months attributable to air pollution. Of those affected, 1 in every 4 required medical attention or hospitalisation.</p>
+      </div>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-number-col"><div class="finding-number">2</div></div>
+      <div>
+        <h3>Biomass Fuel Use</h3>
+        <div class="finding-stat">70%+</div>
+        <p class="finding-desc">Of households reported using biomass fuels for heating — a critical driver of indoor air pollution risks, compounded by inadequate kitchen ventilation in over half of all homes surveyed.</p>
+      </div>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-number-col"><div class="finding-number">3</div></div>
+      <div>
+        <h3>Kitchen Ventilation</h3>
+        <div class="finding-stat">51.66%</div>
+        <p class="finding-desc">Of kitchens lacked chimneys or exhaust fans, significantly contributing to respiratory illness and eye irritation — disproportionately affecting women, children, and elderly residents.</p>
+      </div>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-number-col"><div class="finding-number">4</div></div>
+      <div>
+        <h3>Financial Impact</h3>
+        <div class="finding-stat">34.64%</div>
+        <p class="finding-desc">Of households face Catastrophic Health Expenditure (CHE), where out-of-pocket healthcare costs exceed a critical income threshold. 78% of households earn ≤ ₹20,000/month, leaving almost no financial buffer.</p>
+      </div>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-number-col"><div class="finding-number">5</div></div>
+      <div>
+        <h3>Proximity Risk</h3>
+        <div class="finding-stat">3 in 10</div>
+        <p class="finding-desc">Households situated within 1 km of a waste-burning site, agricultural field, national highway, or busy road visited a health facility for respiratory problems in the last six months.</p>
+      </div>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-number-col"><div class="finding-number">6</div></div>
+      <div>
+        <h3>Awareness Gaps</h3>
+        <div class="finding-stat">Fragmented</div>
+        <p class="finding-desc">Younger individuals show greater recognition of pollution risks, while older populations dismiss concerns citing tradition and economics. Many remain unaware of "invisible" pollutants and long-term consequences.</p>
+      </div>
+    </div>
+
+    <div class="finding-card span-2">
+      <div class="finding-number-col"><div class="finding-number">7</div></div>
+      <div>
+        <h3>Gender &amp; Exposure</h3>
+        <div class="finding-stat" style="font-size:28px;margin-bottom:14px;">Gendered exposure pathways</div>
+        <p class="finding-desc">Women primarily experience <strong>indoor air pollution</strong> through traditional cooking practices using firewood and cow dung — leading to chronic respiratory conditions, eye irritation, and skin issues. Men face greater <strong>outdoor air pollution</strong> exposure through crop burning, vehicular emissions, and industrial pollutants encountered in agricultural and labour-intensive work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VULNERABLE GROUPS -->
+<section id="vulnerable">
+  <div class="section-label">Differential Risk</div>
+  <h2 class="section-title">Vulnerable Groups are Disproportionately Affected</h2>
+  <div class="red-rule"></div>
+  <p class="section-intro">Statistical analysis reveals elevated health risk for vulnerable sub-populations in surveyed households, underscoring the need for targeted protective interventions.</p>
+  <div class="vuln-grid">
+    <div class="vuln-card">
+      <div class="vuln-icon">🫁</div>
+      <div class="vuln-pct">20.9%</div>
+      <div class="vuln-more">more likely</div>
+      <div class="vuln-label">Individuals with pre-existing health conditions to experience exacerbated symptoms</div>
+    </div>
+    <div class="vuln-card">
+      <div class="vuln-icon">🧓</div>
+      <div class="vuln-pct">13.6%</div>
+      <div class="vuln-more">more likely</div>
+      <div class="vuln-label">Older adults (65+) to report pollution-related health issues</div>
+    </div>
+    <div class="vuln-card">
+      <div class="vuln-icon">🤰</div>
+      <div class="vuln-pct">7.9%</div>
+      <div class="vuln-more">more likely</div>
+      <div class="vuln-label">Pregnant women to report health issues linked to air pollution</div>
+    </div>
+    <div class="vuln-card">
+      <div class="vuln-icon">👶</div>
+      <div class="vuln-pct">7.1%</div>
+      <div class="vuln-more">more likely</div>
+      <div class="vuln-label">Young children (under 5) to be susceptible to pollution-linked illness</div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <blockquote>"Air pollution is not just an environmental issue — it is a critical public health emergency disproportionately affecting the most vulnerable: children, the elderly, pregnant women, and individuals with pre-existing conditions."</blockquote>
+  <cite>— DFCA Survey Conclusion, Lung Care Foundation 2025</cite>
+</div>
+
+<!-- COM-B -->
+<section id="qualitative">
+  <div class="section-label">Qualitative Analysis</div>
+  <h2 class="section-title">Behavioural Insights: COM-B Framework</h2>
+  <div class="red-rule"></div>
+  <p class="section-intro">Insights from Focus Group Discussions and In-Depth Interviews were analysed using the COM-B model (Capability, Opportunity, Motivation → Behaviour), providing an actionable framework for designing community-level interventions.</p>
+
+  <table class="comb-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Sub-Dimension</th>
+        <th>Insights from the Survey</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="comb-component comb-cap">Capability</span></td>
+        <td><div class="comb-subdim">Psychological</div></td>
+        <td class="comb-insights"><ul><li>Limited understanding of air pollution's long-term health effects</li><li>Common misconception: "bad smell = bad air" (invisible pollutants ignored)</li><li>Low health literacy in older generations</li></ul></td>
+      </tr>
+      <tr>
+        <td><span class="comb-component comb-cap">Capability</span></td>
+        <td><div class="comb-subdim">Physical</div></td>
+        <td class="comb-insights"><ul><li>Inability to afford clean alternatives such as LPG</li><li>Limited practical skills to implement clean practices (e.g., crop-waste composting)</li></ul></td>
+      </tr>
+      <tr>
+        <td><span class="comb-component comb-opp">Opportunity</span></td>
+        <td><div class="comb-subdim">Physical</div></td>
+        <td class="comb-insights"><ul><li>High LPG costs and limited availability in rural areas</li><li>Lack of viable alternatives to stubble and crop burning</li><li>Poor infrastructure — inadequate ventilation, sewer access</li><li>Free health testing available but indirect costs persist</li></ul></td>
+      </tr>
+      <tr>
+        <td><span class="comb-component comb-opp">Opportunity</span></td>
+        <td><div class="comb-subdim">Social</div></td>
+        <td class="comb-insights"><ul><li>Strong cultural norms around traditional cooking and stubble burning</li><li>Resistance to change ("we've always done it this way")</li><li>Mistrust toward health workers in some communities</li><li>Low collective action — "others must change first" mentality</li></ul></td>
+      </tr>
+      <tr>
+        <td><span class="comb-component comb-mot">Motivation</span></td>
+        <td><div class="comb-subdim">Reflective</div></td>
+        <td class="comb-insights"><ul><li>Widespread belief that air pollution is seasonal or harmless</li><li>Doubts about the effectiveness of individual preventive actions</li><li>Financial priorities consistently override clean practice adoption</li></ul></td>
+      </tr>
+      <tr>
+        <td><span class="comb-component comb-mot">Motivation</span></td>
+        <td><div class="comb-subdim">Automatic</div></td>
+        <td class="comb-insights"><ul><li>Habitual and deeply ingrained use of chulhas for cooking/heating</li><li>Emotional attachment to traditional practices and cultural identity</li><li>Women more motivated by family health concerns; men more dismissive</li></ul></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- RECOMMENDATIONS -->
+<section id="recommendations" style="background:var(--white)">
+  <div class="section-label">Actionable Insights</div>
+  <h2 class="section-title">Recommendations for Districts</h2>
+  <div class="red-rule"></div>
+  <p class="section-intro">Interventions are organised into three strategic tracks based on DFCA's operational scope, resource bandwidth, and partnership opportunities in Punjab.</p>
+
+  <div class="reco-tabs">
+    <button class="reco-tab active" onclick="showTab('dfca')">DFCA-Led Actions</button>
+    <button class="reco-tab" onclick="showTab('policy')">Policy Recommendations</button>
+    <button class="reco-tab" onclick="showTab('collab')">Collaborative Solutions</button>
+  </div>
+
+  <div id="tab-dfca" class="reco-panel active">
+    <ul class="reco-list">
+      <li class="reco-item"><strong>Community Awareness &amp; Behaviour Change:</strong> Targeted sessions addressing biomass fuel use, open waste burning, and stubble burning — with special focus on indoor air pollution contributors like poor ventilation, mould, and unclean cooking. Coverage for high-risk households near highways, industrial zones, and brick kilns.</li>
+      <li class="reco-item"><strong>Frontline Health Worker Capacity Building:</strong> Training for ASHAs, ANMs, Anganwadi workers, and CHOs on pollution health impacts, mitigation strategies, and early detection — particularly for vulnerable groups: children, pregnant women, and the elderly.</li>
+      <li class="reco-item"><strong>Resource Dissemination &amp; Strategic Communication:</strong> Context-specific posters, infographics, toolkits, and training modules for rural health professionals. Coordinated messaging via electronic and print media to debunk myths and increase public risk perception.</li>
+      <li class="reco-item"><strong>Evidence Generation &amp; Applied Research:</strong> Continued community-level surveys, health assessments, and exposure mapping to generate actionable data for programme adaptation and evidence-based policy advocacy.</li>
+      <li class="reco-item"><strong>Doctor-Led Policy Communication:</strong> Equipping DFCA doctors and public health professionals to engage district and municipal administrators — using local data from this survey to recommend targeted, administratively feasible reforms.</li>
+    </ul>
+  </div>
+
+  <div id="tab-policy" class="reco-panel">
+    <ul class="reco-list">
+      <li class="reco-item">Integrate air pollution exposure and respiratory illness indicators into district health dashboards and routine surveillance systems for real-time tracking and early intervention.</li>
+      <li class="reco-item">Include respiratory risk screening protocols and early treatment guidelines in SOPs of PHCs, CHCs, and district hospitals to improve detection of pollution-related illness.</li>
+      <li class="reco-item">Enforce stricter bans on open waste and stubble burning within a 1 km radius of residential areas, schools, and healthcare facilities.</li>
+      <li class="reco-item">Establish decentralised, community-based monitoring systems in partnership with Panchayats and ward committees to track and discourage burning activities.</li>
+      <li class="reco-item">Promote financial protection measures to reduce Catastrophic Health Expenditure — including coverage of asthma/COPD under state health insurance, district-level emergency health funds, and subsidised respiratory care at public health centres.</li>
+      <li class="reco-item">Mandate installation of chimneys and exhaust systems in all government-supported rural housing (PMAY) — incorporating clean air infrastructure into building codes and design guidelines.</li>
+    </ul>
+  </div>
+
+  <div id="tab-collab" class="reco-panel">
+    <ul class="reco-list">
+      <li class="reco-item">Partner with academic institutions and public health bodies for cohort studies and long-term exposure tracking, especially for women, children, and the elderly.</li>
+      <li class="reco-item">Organise pan-district awareness events — Clean Air Fairs, mobile exhibitions, mega health camps — by pooling networks of multiple NGOs and CSOs.</li>
+      <li class="reco-item">Facilitate inter-generational dialogue to promote cultural transitions from harmful traditional practices (cow dung use, chulhas) to cleaner, health-focused alternatives.</li>
+      <li class="reco-item">Research and develop alternative crop-residue management methods in collaboration with farmer groups and agriculture-focused CSOs.</li>
+      <li class="reco-item">Provide waste segregation training for sanitation workers and waste-picker cooperatives in partnership with local NGOs and municipal stakeholders.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- WAY FORWARD -->
+<section id="wayforward">
+  <div class="section-label">Next Steps</div>
+  <h2 class="section-title">Way Forward</h2>
+  <div class="red-rule"></div>
+  <div class="wf-grid">
+    <div class="wf-card">
+      <div class="wf-icon">📢</div>
+      <h4>Community Awareness &amp; Behaviour Change</h4>
+    </div>
+    <div class="wf-card">
+      <div class="wf-icon">🏥</div>
+      <h4>Capacity Building of Frontline Health Workers</h4>
+    </div>
+    <div class="wf-card">
+      <div class="wf-icon">🔬</div>
+      <h4>Long-Term Research &amp; Cohort Studies</h4>
+    </div>
+    <div class="wf-card">
+      <div class="wf-icon">🎯</div>
+      <h4>Targeted Awareness Programs for At-Risk Groups</h4>
+    </div>
+    <div class="wf-card">
+      <div class="wf-icon">🤝</div>
+      <h4>Collaborative &amp; Partner-Driven Solution Ideation</h4>
+    </div>
+  </div>
+</section>
+
+<!-- DISSEMINATION -->
+<section id="dissemination" style="background:var(--white)">
+  <div class="section-label">Sharing the Evidence</div>
+  <h2 class="section-title">Dissemination Strategy</h2>
+  <div class="red-rule"></div>
+  <div class="dissem-cols">
+    <div class="dissem-block">
+      <h3>Immediate &amp; Short-Term</h3>
+      <ul>
+        <li>Present findings to key district officials, health authorities, and local governance representatives</li>
+        <li>Share highlights with regional media through press releases and DFCA expert op-eds</li>
+        <li>Use findings to inform DFCA's regional capacity-building and awareness sessions</li>
+        <li>Develop localised IEC materials — posters, infographics, videos — tailored to rural audience needs</li>
+      </ul>
+    </div>
+    <div class="dissem-block">
+      <h3>Medium- to Long-Term</h3>
+      <ul>
+        <li>Prepare policy briefs for district and state-level advocacy</li>
+        <li>Conduct community "report-back" meetings to share results locally</li>
+        <li>Amplify key messages and community stories through DFCA's social media platforms</li>
+        <li>Share findings with NGOs, academic partners, and donors for joint follow-up initiatives</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <h3>Lung Care Foundation</h3>
+    <p>Committed to the care and cure of 2.8 billion lungs in India — through awareness, capacity building, and research-driven action on lung health and air quality.</p>
+    <p style="margin-top:16px;font-size:13px;">C9/9624, Vasant Kunj, New Delhi – 110070<br>
+    <a href="mailto:info@lcf.org.in" style="color:#666;text-decoration:none;">info@lcf.org.in</a> &nbsp;·&nbsp; 011 45629324</p>
+  </div>
+  <div>
+    <h3>More from DFCA</h3>
+    <ul class="footer-links">
+      <li><a href="https://lcf.org.in/dfca" target="_blank">Doctors For Clean Air &amp; Climate Action →</a></li>
+      <li><a href="https://lcf.org.in/research-studies/" target="_blank">Research Studies →</a></li>
+      <li><a href="https://lcf.org.in/what-is-air-pollution-initiative-lung-care-foundation" target="_blank">Air Pollution Resources →</a></li>
+      <li><a href="https://lcf.org.in/lcf-in-media/" target="_blank">Media Coverage →</a></li>
+      <li><a href="https://lcf.org.in/donate-now/" target="_blank">Support Our Work →</a></li>
+    </ul>
+  </div>
+  <div class="footer-credit">
+    <span>© 2025 Lung Care Foundation. Survey by DFCA. Field data collected by Morsel Research &amp; Development Pvt. Ltd.</span>
+    <span><a href="https://lcf.org.in" style="color:#555;text-decoration:none;">lcf.org.in</a></span>
+  </div>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.reco-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.reco-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Bar animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width;
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.bar-fill').forEach(bar => {
+    bar.dataset.width = bar.style.width;
+    bar.style.width = '0';
+    observer.observe(bar);
+  });
+</script>
+</body>
+</html>
